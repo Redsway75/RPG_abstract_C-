@@ -2,8 +2,7 @@ namespace MyApp
 {
      public class Witcher: Player
     {
-        public Witcher(string name, string type, int level, int hp, int magicpoints, string guild): base(name, type, level, hp, magicpoints, guild){
-        }
+       
          public override string Attack(){
             return this.Name + "Lançou uma magia";
          }

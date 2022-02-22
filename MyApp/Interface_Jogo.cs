@@ -1,4 +1,3 @@
-
 namespace MyApp
 {
     public class Interface
@@ -6,14 +5,15 @@ namespace MyApp
         static void Main(String[] args){
             
             
-
-            while(true){
+            
+            /*while(true){
 
                 Console.WriteLine("Digite uma opção:");
                 Console.WriteLine("1- Criar personagem (Player)");
                 Console.WriteLine("2- Criar Npc");
                 Console.WriteLine("3- Jogar");
-                Console.WriteLine("4- Sair");
+                Console.WriteLine("4- Listar todos os char criados");
+                Console.WriteLine("5- Sair");
 
                 int option; 
                 option = int.Parse(Console.ReadLine());
@@ -22,36 +22,53 @@ namespace MyApp
                     
 
                     case 1:                    
-                        Console.WriteLine("Escolha uma classe e nomei");
+                        Console.WriteLine("Escolha uma classe: ");
                         Console.WriteLine("1- Knight");
                         Console.WriteLine("2- Thief");
                         Console.WriteLine("3- Witcher");
                         Console.WriteLine("4- Divine");
                         Console.WriteLine("5- Cancelar");
+                        Cinterface interf = new Cinterface();
                         int new_char = int.Parse(Console.ReadLine());
                         
                         switch(new_char){
                            case 1:
                                 Console.WriteLine("Nome:");
-                                Console.ReadLine();
+                                string nom = Console.ReadLine();
 
-                                Console.WriteLine(":");
-                                Console.ReadLine();
+                                Console.WriteLine("Guild:");
+                                string gui = Console.ReadLine();
 
-                                Console.WriteLine("Nome:");
-                                Console.ReadLine();
+                                interf.Create_Knight(nom, gui);
+                                Console.WriteLine();
 
-                                Console.WriteLine("Nome:");
-                                Console.ReadLine();
-
-                                Console.WriteLine("Nome:");
-                                Console.ReadLine();
                            break;
                            case 2:
+                                Console.WriteLine("Nome:");
+                                 nom = Console.ReadLine();
+
+                                 Console.WriteLine("Guild:");
+                                 gui = Console.ReadLine();
+
+                                 interf.Create_Thief(nom, gui);
                            break;
                            case 3:
+                                 Console.WriteLine("Nome:");
+                                 nom = Console.ReadLine();
+
+                                 Console.WriteLine("Guild:");
+                                 gui = Console.ReadLine();
+
+                                 interf.Create_Witcher(nom, gui);
                            break;
                            case 4:
+                                Console.WriteLine("Nome:");
+                                 nom = Console.ReadLine();
+
+                                 Console.WriteLine("Guild:");
+                                 gui = Console.ReadLine();
+
+                                 interf.Create_Divine(nom, gui);
                            break;
                            case 5:
                                  Console.Clear();
@@ -84,9 +101,7 @@ namespace MyApp
                     break;
             }
 
-            
-
-        }
+        }*/
     }
     }
 }

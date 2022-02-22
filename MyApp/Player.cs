@@ -3,8 +3,8 @@ namespace MyApp
     public class Player : Character
     {
         public string Guild;
-        public Player(string name, string type, int level, int hp, int magicpoints, string guild): base(name, type, level, hp, magicpoints){
-            this.Guild = guild;
+        public Player(){
+            this.Level = 1;
         }
          
          public virtual string Attack(){
