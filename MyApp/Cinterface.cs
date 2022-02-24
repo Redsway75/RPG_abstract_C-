@@ -2,8 +2,6 @@ namespace MyApp
 {
     public class Cinterface
     {
-        
-
         public Character Create_Knight(string nam, string gui){
               Knight cavaleiro = new Knight();
               cavaleiro.Name = nam;
@@ -29,6 +27,25 @@ namespace MyApp
             bruxo.Guild = gui; 
             return bruxo;
         }
-        
+        public Character Create_Vampire(string nam){
+            Vampire vampiro = new Vampire();
+            vampiro.Name = nam;
+            return vampiro;
+        }
+        public Character Create_Hollow(string nam){
+           Hollow hollow = new Hollow();
+           hollow.Name = nam;
+           return hollow;
+        }        
+        public Character Create_Zombie(string nam){
+            Zombie zumbi = new Zombie();
+            zumbi.Name = nam;
+            return zumbi;
+        }
+        public Character Create_Hunter(string nam){
+            Hunter caçador = new Hunter();
+            caçador.Name = nam;
+            return caçador;
+        }
         }
 }

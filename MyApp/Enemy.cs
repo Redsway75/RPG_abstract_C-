@@ -1,17 +1,19 @@
 namespace MyApp
 {
-    public class Enemy : npc
+    public class Enemy : Character
     {
-         public string Attack(){
-            return this.Name + "atacou";
+         public virtual void Attack(Player enemy){
+            Console.WriteLine(this.Name+" Desferiu um ataque com adagas no " +enemy.Name);
          }
-
-         public string RunnAway(){
-             return this.Name + "Fugiu";
+         
+         public virtual void SpecialAttack(Player enemy){
+             Console.WriteLine(this.Name+"lançou 3 kunais no "+enemy.Name);
+             }
+         public virtual void Swipe(Player enemy){
+              Console.WriteLine($"{this.Name} roubou {enemy.Coin-100} de dinheiro de {enemy.Name}");
          }
-
-         public string Shield(){
-             return this.Name + "Se defendeu";
-         }
-    }
+         public virtual void Defend(Player enemy){
+             Console.WriteLine($"{this.Name} se defendeu desviando dos ataques de {enemy.Name}");
+             } 
+}
 }

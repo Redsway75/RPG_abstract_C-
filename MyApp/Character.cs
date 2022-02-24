@@ -6,6 +6,8 @@ namespace MyApp
         public string Name{get {return this._Name;} set{_Name = value;}}
         public int Level;
         public int HP;
+
+        public int Coin = 200;
         public int MagicPoints;
         public Character(){
             this.HP = 100;

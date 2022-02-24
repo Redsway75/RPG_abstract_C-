@@ -12,22 +12,16 @@ namespace MyApp
             this.Guild_ = "none";
         }
          
-         public virtual string Attack(){
-             return this.Name+ "Atacou";
+         public virtual void Attack(Enemy monster){
+              Console.WriteLine("Atacou");
          }
-         public virtual string SpecialAttack(){
-             return this.Name + "Ataque especial";
+         public virtual void SpecialAttack(Enemy monster){
+             Console.WriteLine("Ataque especial");
          }
-         public virtual string Defend(){
-             return this.Name + "Se defendeu";
+         public virtual void Defend(Enemy monster){
+             Console.WriteLine(this.Name +"Se defendeu");
          }
 
-         public string Recruit(){
-             return this.Name +"Recrutou";
-         }
-         public string Dismiss(){
-             return this.Name+ "Demitiu";
-         }
         public override string ToString(){
             return this.Name +" "+ this.Level +" "+ this.HP +" "+ this.MagicPoints;
         }
