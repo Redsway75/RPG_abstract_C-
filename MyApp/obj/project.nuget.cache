@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MlmaRxwcVHZXWsQASB9C/gQP8oL6uFsdjBREK9XdWM7+4xmOkTuww3xINsJzmX+709Z9OGjCmPwpltNFGBq8Bw==",
+  "dgSpecHash": "Q+/QNGF47sywsO3WlU/vSGSiuJ4oinA0WHWkVurXmpdMujpBfG57xKBpSn3cOGWkmZ86/S5P5JTVBgU47KQ3aw==",
   "success": true,
   "projectFilePath": "C:\\Users\\JAVIER\\Desktop\\C#\\MyApp\\MyApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\JAVIER\\.nuget\\packages\\morelinq\\3.3.2\\morelinq.3.3.2.nupkg.sha512"
+  ],
   "logs": []
 }

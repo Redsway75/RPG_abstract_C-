@@ -13,3 +13,5 @@ C:\Users\JAVIER\Desktop\c#\MyApp\obj\Debug\net6.0\refint\MyApp.dll
 C:\Users\JAVIER\Desktop\c#\MyApp\obj\Debug\net6.0\MyApp.pdb
 C:\Users\JAVIER\Desktop\c#\MyApp\obj\Debug\net6.0\MyApp.genruntimeconfig.cache
 C:\Users\JAVIER\Desktop\c#\MyApp\obj\Debug\net6.0\ref\MyApp.dll
+C:\Users\JAVIER\Desktop\C#\MyApp\bin\Debug\net6.0\MoreLinq.dll
+C:\Users\JAVIER\Desktop\C#\MyApp\obj\Debug\net6.0\MyApp.csproj.CopyComplete

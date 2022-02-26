@@ -18,6 +18,10 @@ namespace MyApp
          public virtual void SpecialAttack(Enemy monster){
              Console.WriteLine("Ataque especial");
          }
+
+         public virtual void skill(Enemy monster){
+
+         }
          public virtual void Defend(Enemy monster){
              Console.WriteLine(this.Name +"Se defendeu");
          }

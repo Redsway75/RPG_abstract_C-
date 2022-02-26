@@ -9,7 +9,7 @@ namespace MyApp
          public virtual void SpecialAttack(Player enemy){
              Console.WriteLine(this.Name+"lançou 3 kunais no "+enemy.Name);
              }
-         public virtual void Swipe(Player enemy){
+         public virtual void skill(Player enemy){
               Console.WriteLine($"{this.Name} roubou {enemy.Coin-100} de dinheiro de {enemy.Name}");
          }
          public virtual void Defend(Player enemy){
