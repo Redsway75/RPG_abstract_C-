@@ -39,17 +39,21 @@ namespace MyApp
 
          public void skill(Player friend){
              if(this.MagicPoints > 30){
-             Console.WriteLine($"{this.Name} restaurou/aumentou para +{friend.MagicPoints+75} de mana do {friend.Name}");
-             this.MagicPoints=this.MagicPoints-15;
-             Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
+                Console.WriteLine(""); 
+                Console.WriteLine($"{this.Name} restaurou/aumentou para +{friend.MagicPoints+75} de mana do {friend.Name}");
+                this.MagicPoints=this.MagicPoints-15;
+                Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
+                Console.WriteLine("");
              }
              else{Console.WriteLine("Mana insuficiente para usar magia");}
          }
          public override void Defend(Enemy monster){
              if(this.MagicPoints >= 65){
-             Console.WriteLine($"{this.Name} usou campo de força contra os ataque de {monster.Name}");
-             this.MagicPoints = this.MagicPoints-65;
-             Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
+                 Console.WriteLine("");
+                 Console.WriteLine($"{this.Name} usou campo de força contra os ataque de {monster.Name}");
+                 this.MagicPoints = this.MagicPoints-65;
+                 Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
+                 Console.WriteLine("");
          }
             else{Console.WriteLine("Mana insuficiente para a defesa!");}
          }

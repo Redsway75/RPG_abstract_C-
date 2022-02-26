@@ -2,6 +2,7 @@ namespace MyApp
 {
     public class Cinterface
     {
+        
         public Knight Create_Knight(string nam, string gui){
               Knight cavaleiro = new Knight();
               cavaleiro.Name = nam;
@@ -58,66 +59,76 @@ namespace MyApp
             numb = int.Parse(Console.ReadLine());
             
         }
-        public Player CharStatus(Player char1, Enemy char2){
-            Player retorno = new Player();
+        public void CharStatus(Player char1, Enemy char2){
+            
             Console.WriteLine("Status do persongem:");
             Console.WriteLine($"{char1.Name} -> VIDA:{char1} MANA:{char1.MagicPoints} DINEHIRO:{char1.Coin}");
             Console.WriteLine($"{char2.Name} -> VIDA:{char2} MANA:{char2.MagicPoints} DINEHIRO:{char2.Coin}");
             Console.WriteLine("------------------------------------------------------------------------------");
-            return retorno;
+            
         }
-        public Player batalha(Player player, Enemy enemy){
-            Player retun = new Player();
-            while(true){
+        public void batalha(Player player, Enemy enemy){
+            do
+            {
             CharStatus(player, enemy);
             Console.WriteLine("Digite uma opção para que ambos executem:");
+            Console.WriteLine("0- Sair");
             Console.WriteLine("1- Atacar");
             Console.WriteLine("2- Ataque Especial");
             Console.WriteLine("3- Skill");
             Console.WriteLine("4- Defender");
-            Console.WriteLine("0- Sair");
+            Console.WriteLine("5- Skip");
             #nullable disable
             int? choose = int.Parse(Console.ReadLine());
 
-                if(player.HP<=0){Console.WriteLine($"{player.Name} venceu a batalha!"); break;}
-                if(enemy.HP<=0){Console.WriteLine($"{enemy.Name} venceu a batalha"); break;}
-
+                if(choose == 0){break;}
+                
                 switch(choose){
                     case 0:
-                        player.HP=0;
-                        Console.WriteLine("Você desistiu da batalha!");
+                        Console.Clear();
                     break;
                     case 1:
+                        Console.Clear();
+                        Console.WriteLine("");
                         player.Attack(enemy);
+                        if(enemy.HP<=0){Console.WriteLine($"{enemy.Name} venceu a batalha"); break;}
                         enemy.Attack(player);
                         if(player.HP<=0){Console.WriteLine($"{player.Name} venceu a batalha!"); break;}
-                        if(enemy.HP<=0){Console.WriteLine($"{enemy.Name} venceu a batalha"); break;}
+                        
                     break;
                     case 2:
+                        Console.Clear();
+                        Console.WriteLine("");
                         player.SpecialAttack(enemy);
-                        enemy.SpecialAttack(player);
-                        if(player.HP<=0){Console.WriteLine($"{player.Name} venceu a batalha!"); break;}
                         if(enemy.HP<=0){Console.WriteLine($"{enemy.Name} venceu a batalha"); break;}
+                        enemy.SpecialAttack(player); 
+                        if(player.HP<=0){Console.WriteLine($"{player.Name} venceu a batalha!"); break;}
                     break;
                     case 3:
+                        Console.Clear();
                         player.skill(enemy);
+                        if(enemy.HP<=0){Console.WriteLine($"{enemy.Name} venceu a batalha"); break;}
                         enemy.skill(player);
                         if(player.HP<=0){Console.WriteLine($"{player.Name} venceu a batalha!"); break;}
-                        if(enemy.HP<=0){Console.WriteLine($"{enemy.Name} venceu a batalha"); break;}
                     break;
                     case 4:
+                        Console.Clear();
                         player.Defend(enemy);
-                        enemy.Defend(player);
                         if(player.HP<=0){Console.WriteLine($"{player.Name} venceu a batalha!"); break;}
+                        enemy.Defend(player);
                         if(enemy.HP<=0){Console.WriteLine($"{enemy.Name} venceu a batalha"); break;}
+                    break;
+                    case 5:
+                        Console.Clear();
+                        Console.WriteLine("Turno skipado!");
                     break;
                     default:
                         Console.Clear();
                         Console.WriteLine("Digite um valor válido");
                     break;
                 }
-            }
-            return retun;
+            } while (player.HP <=0 | enemy.HP <= 0);
+            
         }
         }
 }

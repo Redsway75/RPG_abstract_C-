@@ -40,14 +40,18 @@ namespace MyApp
                     Console.WriteLine($"{this.Name} lançõu bomba no {monster.Name}");
                     monster.HP = monster.HP - 35;
                     this.MagicPoints = this.MagicPoints-45;
+                    Console.WriteLine("");
                     Console.WriteLine($"{monster.Name} tem {monster.HP} de vida");
                     Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
+                    Console.WriteLine("");
                         if(monster.HP <=0){
                             Console.WriteLine($"{this.Name} matou {monster.Name}!");
                             this.MagicPoints = this.MagicPoints-55;
                             this.Level = this.Level+1;
+                            Console.WriteLine("");
                             Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
                             Console.WriteLine($"{this.Name} subiu de nivel! level atual: {this.Level}!");
+                            Console.WriteLine("");
                         }
          }
                 else{Console.WriteLine("O inimigo está eliminado!");}
@@ -56,9 +60,11 @@ namespace MyApp
          }
          public override void Defend(Enemy monster){
             if(this.MagicPoints>=15){
-             Console.WriteLine($"{this.Name} se defendeu desviando dos ataques de {monster.Name}");
-             this.MagicPoints=this.MagicPoints-15;
-             Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
+                Console.WriteLine("");
+                Console.WriteLine($"{this.Name} se defendeu desviando dos ataques de {monster.Name}");
+                this.MagicPoints=this.MagicPoints-15;
+                Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
+                Console.WriteLine("");
          }
             else{Console.WriteLine("Mana insuficiente para se defender!");}
          }

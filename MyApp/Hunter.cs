@@ -43,13 +43,18 @@ namespace MyApp
                 Console.WriteLine($"{this.Name} Atirou flechas em {enemy.Name}");
                 enemy.HP = enemy.HP - 15;
                 this.MagicPoints=this.MagicPoints - 10;
+                Console.WriteLine("");
                 Console.WriteLine($"{enemy.Name} tem {enemy.HP} de vida");
                 Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
+                Console.WriteLine("");
                     if(enemy.HP <= 0){
                         Console.WriteLine($"{this.Name} matou {enemy.Name}");
                         this.Level=this.Level+1;
                         this.MagicPoints=this.MagicPoints+40;
+                        Console.WriteLine("");
+                        Console.WriteLine($"{this.Name} subiu de nivel! Level atual: {this.Level}");
                         Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
+                        Console.WriteLine("");
                     }
          }
                 else{Console.WriteLine("O inimigo já está eliminado");}
@@ -59,9 +64,11 @@ namespace MyApp
              
          public override void Defend(Player enemy){
             if(this.MagicPoints>=35){
+                Console.WriteLine("");
                 Console.WriteLine($"{this.Name} se defendeu desviando dos ataques de {enemy.Name}");
                 this.MagicPoints=this.MagicPoints-35;
                 Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
+                Console.WriteLine("");
          }
             else{Console.WriteLine("Mana insuficiente para se defender!");}
          }

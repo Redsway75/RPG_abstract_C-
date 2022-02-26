@@ -15,11 +15,13 @@ namespace MyApp
             List<Character> list_ = new List<Character>(5);
             List<Player> PlayerList = new List<Player>();
             List<Enemy> EnemyList = new List<Enemy>();
-            Player cavaleiro = new Player();
-            Player cavaleiro2 = new Player();
-            Enemy vampiro = new Enemy();
-            Enemy vampiro2 = new Enemy();
+            Knight cavaleiro = new Knight();
+            Knight cavaleiro2 = new Knight();
+            Vampire vampiro = new Vampire();
+            Vampire vampiro2 = new Vampire();
             Thief ladrao = new Thief();
+            int i = 0;
+            int j = 0;
 
             cavaleiro.Name ="andre";
             cavaleiro2.Name="nicolas";
@@ -82,6 +84,7 @@ namespace MyApp
                                 list_.Add(inter.Create_Knight(cname, cguild));
                                 Console.Clear();
                                 Console.WriteLine("Personagem de classe cavaleiro criado");
+                                i++;
                             
                            break;
                            case 2:
@@ -96,6 +99,8 @@ namespace MyApp
                                 list_.Add(inter.Create_Witcher(lname, lguild));
                                 Console.Clear();
                                 Console.WriteLine("Personagem de classe ladrão criado");
+                                i++;
+                                
                            break;
                            case 3:
                                  //bruxo
@@ -109,6 +114,7 @@ namespace MyApp
                                 list_.Add(inter.Create_Witcher(name_, guild_));
                                 Console.Clear();
                                 Console.WriteLine("Personagem de classe bruxo criado");
+                                i++;
                            break;
                            case 4:
                                 //divine
@@ -121,6 +127,7 @@ namespace MyApp
                                 list_.Add(inter.Create_Witcher(dname, dguild));
                                 Console.Clear();
                                 Console.WriteLine("Personagem de classe divino criado");
+                                i++;
                            break;
                            case 5:
                                  Console.Clear();
@@ -155,6 +162,7 @@ namespace MyApp
                                 list_.AddRange(EnemyList);
                                 Console.Clear();
                                 Console.WriteLine("Personagem do tipo vampiro criado");
+                                j++;
                             break;
                             case 2:
                                 Console.WriteLine("Nome: ");
@@ -166,6 +174,7 @@ namespace MyApp
                                 list_.AddRange(EnemyList);
                                 Console.Clear();
                                 Console.WriteLine("Personagem do tipo zumbi criado");
+                                j++;
                             break;
                             case 3:
                                 Console.WriteLine("Nome: ");
@@ -177,6 +186,7 @@ namespace MyApp
                                 list_.AddRange(EnemyList);
                                 Console.Clear();
                                 Console.WriteLine("Personagem do tipo hollow criado");
+                                j++;
                             break;
                             case 4:
                                 Console.WriteLine("Nome: ");
@@ -188,6 +198,7 @@ namespace MyApp
                                 list_.AddRange(EnemyList);
                                 Console.Clear();
                                 Console.WriteLine("Personagem do tipo vampiro criado");
+                                j++;
                             break;
                             case 5:
                                 Console.Clear();
@@ -200,70 +211,51 @@ namespace MyApp
                     break;
 
                     case 3:
+                    int battle;
+                    do{
+                        Console.WriteLine("");
+                        Console.WriteLine("Para escolher quem irá atacar");
+                        Console.WriteLine("basta seguir skipando até o char");
+                        Console.WriteLine("que deseja atacar. Para o inverso,");
+                        Console.WriteLine("basta executar o mesmo até o final");
+                        Console.WriteLine("para que o programa pule para o próximo dalista");
                         Console.WriteLine("Escolha a opção:");
-                        Console.WriteLine("1- Listar ID de players");
-                        Console.WriteLine("2- Listar ID de inimigos");
-                        Console.WriteLine("3- Jogar");
-                        Console.WriteLine("4- Sair");
-                        int battle = int.Parse(Console.ReadLine());
+                        Console.WriteLine("1- Jogar");
+                        Console.WriteLine("2- Sair");
+                        battle = int.Parse(Console.ReadLine());
                         switch(battle){
                             case 1:
-                                if (PlayerList.Any()){
                                 Console.Clear();
-                                Console.WriteLine("Players: ");
-                                int i=0;
-                                foreach (var play in PlayerList.Select((x , y)=>new{Value = x, Index = y})){
-                                    if(i<PlayerList.Count){
-                                    Console.WriteLine("====================================");
-                                    Console.WriteLine("====================================");
-                                    Console.WriteLine($" {play.Index}- Nome:  {play.Value}");
-                                    Console.WriteLine();
-                                    Console.WriteLine("====================================");    
-                                    }    
-                                }         
-                                }
-                                else{Console.WriteLine("LISTA VAZIA! CRIE UM PLAYER E UM INIMIGO!");}
-                            break;
-                            case 2:
-                                if(EnemyList.Any()){
-                                    Console.Clear();
-                                    Console.WriteLine("Inimigos");
-                                    int j=0;
-                                    foreach (var inim in EnemyList.Select((w, z)=>new{Value = w, Index = z})){
-                    
-                                        if(j<EnemyList.Count){
-                                        Console.WriteLine("");
-                                        Console.WriteLine($"{inim.Index} Nome: {inim.Value}");
-                                        Console.WriteLine("");
-                                        Console.WriteLine("");
-                                        }
-                                    }                                    
-                                }
-                                else{Console.WriteLine("LISTA VAZIA! CRIE UM PLAYER E UM INIMIGO!");}
-                            break;
-                            case 3:
-
                                 if(EnemyList.Any() & PlayerList.Any()){
                                     Console.Clear();
-                                    Console.WriteLine("Escolha seus personaegens");
-                                    Console.WriteLine("Digite o ID do Player: ");
-                                
-                                    var listplay = new[]{PlayerList};
-                                    var listini = new[]{EnemyList};
+                                    Console.WriteLine("A batalha está ocorrendo agora");
+                                    Console.WriteLine("Selecione uma ação ou pule para o proximo personagem!:");
 
-                                    var tudo = listplay.Zip(listini, (x, y)=> new{listplay = x, listini = y});
-                                    foreach(var ls in tudo){
-
-                                                    Console.WriteLine(ls.listplay+"--"+ls.listini);                
-                                        
+                                    
+                                    foreach(var lsPL in PlayerList.Select((x, y)=>new{Value = x, Index = y})){
+                                        foreach(var lsIN in EnemyList.Select((z, w)=>new{Value = z, Index = w})){
+                                            inter.batalha(lsPL.Value, lsIN.Value);
+                                            if (lsIN.Value.HP<=0){
+                                                EnemyList.Remove(lsIN.Value);
+                                            }
+                                            if(lsPL.Value.HP<=0){
+                                                PlayerList.Remove(lsPL.Value);
+                                            }
+                                            else{continue;}
+                                            }
+                                    }                            
                                     }
-                                    } 
                             break;
-                            case 4:
+                            case 2:
+                                Console.Clear();
+                                Console.WriteLine("Voltando para o menu...");
                             break;
-                            case 5:
+                            default:
+                                Console.Clear();
+                                Console.WriteLine("Digito invalido!");
                             break;
                         }
+                        }while(battle !=2);
                     break;
                     case 4:
                         if(list_.Any()){

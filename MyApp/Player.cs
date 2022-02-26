@@ -1,6 +1,6 @@
 namespace MyApp
 {
-    public class Player : Character
+    public class Player : Character, ICharacter
     {
         private string Guild_;
         public string Guild{
@@ -13,17 +13,16 @@ namespace MyApp
         }
          
          public virtual void Attack(Enemy monster){
-              Console.WriteLine("Atacou");
+              
          }
          public virtual void SpecialAttack(Enemy monster){
-             Console.WriteLine("Ataque especial");
+             
          }
 
          public virtual void skill(Enemy monster){
 
          }
          public virtual void Defend(Enemy monster){
-             Console.WriteLine(this.Name +"Se defendeu");
          }
 
         public override string ToString(){
