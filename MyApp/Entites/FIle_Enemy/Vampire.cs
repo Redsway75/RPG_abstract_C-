@@ -8,15 +8,15 @@ namespace MyApp
                 Console.WriteLine(this.Name+" mordeu " +enemy.Name);
                 enemy.HP = enemy.HP - 35;
                 Console.WriteLine($"{enemy.Name} tem {enemy.HP} de vida");
-                Console.WriteLine("");
                 this.MagicPoints=this.MagicPoints+15;
-                if(enemy.HP <= 0){Console.WriteLine(this.Name+"Matou "+enemy.Name);
-                this.MagicPoints=this.MagicPoints+30;
-                this.Level=this.Level+1;
+                Console.WriteLine($"{this.Name}: +15 de mana");
                 Console.WriteLine("");
-                Console.WriteLine($"{this.Name} subiu de nivel! level atual: {this.Level}!");
-                Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana!");
-                Console.WriteLine("");
+                if(enemy.HP <= 0){Console.WriteLine(this.Name+" Matou "+enemy.Name);
+                    this.MagicPoints=this.MagicPoints+30;
+                    this.Level=this.Level+1;
+                    Console.WriteLine($"{this.Name} subiu de nivel! level atual: {this.Level}!");
+                    Console.WriteLine($"{this.Name}: +30 de mana");
+                    Console.WriteLine("");
                 }
             }
              else{Console.WriteLine("O inimigo já está eliminado");}
@@ -27,19 +27,19 @@ namespace MyApp
              if(enemy.HP > 0){
              Console.WriteLine(this.Name+" mordeu o pescoço e sugou a vida de "+enemy.Name);
              enemy.HP = enemy.HP - 50;
-             Console.WriteLine("");
              Console.WriteLine($"{enemy.Name} tem {enemy.HP} de vida");
-             Console.WriteLine("");
-             this.MagicPoints=this.MagicPoints-85;
-             Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana");
+             this.MagicPoints=this.MagicPoints-75;
+             Console.WriteLine($"{this.Name}: -75 de mana");
              this.HP = 100;
              Console.WriteLine($"{this.Name} recuperou vida ({this.HP} de HP)");
              Console.WriteLine("");
                 if(enemy.HP <= 0){
-                    Console.WriteLine(this.Name+"Matou "+enemy.Name);
+                    Console.WriteLine(this.Name+" Matou "+enemy.Name);
                     this.Level=this.Level+1;
                     this.MagicPoints=this.MagicPoints+60;
-                    Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana no total");
+                    Console.WriteLine($"{this.Name} subiu de level! level atual: {this.Level}");
+                    Console.WriteLine($"{this.Name}: +60 de mana");
+                    Console.WriteLine("");
                 }
              }
              else{Console.WriteLine("O inimigo já está eliminado");}
@@ -51,16 +51,17 @@ namespace MyApp
                 if(enemy.HP > 0){ 
                 Console.WriteLine($"{this.Name} Arremeçou {enemy.Name} para longe");
                 enemy.HP = enemy.HP - 25;
-                Console.WriteLine("");
                 Console.WriteLine($"{enemy.Name} tem {enemy.HP} de vida");
                 this.MagicPoints=this.MagicPoints - 30;
-                Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana");
+                Console.WriteLine($"{this.Name}: -30 de mana");
                 Console.WriteLine("");
                     if(enemy.HP <= 0){
                         Console.WriteLine($"{this.Name} matou {enemy.Name}");
                         this.Level=this.Level+1;
                         this.MagicPoints=this.MagicPoints+25;
-                        Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana");
+                        Console.WriteLine($"{this.Name} subiu de level! level atual: {this.Level}");
+                        Console.WriteLine($"{this.Name}: +25 de mana");
+                        Console.WriteLine("");
                     }
          }
                 else{Console.WriteLine("O inimigo já está eliminado");}
@@ -72,7 +73,7 @@ namespace MyApp
             if(this.MagicPoints>=35){
                 Console.WriteLine($"{this.Name} se defendeu desviando dos ataques de {enemy.Name}");
                 this.MagicPoints=this.MagicPoints-35;
-                Console.WriteLine("");
+                Console.WriteLine($"{this.Name}: -35 de mana");
                 Console.WriteLine($"{this.Name} tem {this.MagicPoints} de mana");
                 Console.WriteLine("");
          }

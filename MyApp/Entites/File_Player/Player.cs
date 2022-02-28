@@ -1,6 +1,6 @@
 namespace MyApp
 {
-    public class Player : Character, ICharacter
+    public class Player : Character
     {
         private string Guild_;
         public string Guild{

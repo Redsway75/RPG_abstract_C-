@@ -1,6 +1,6 @@
 namespace MyApp
 {
-    public class Enemy : Character, ICharacter
+    public class Enemy : Character
     {
          public virtual void Attack(Player enemy){
          }

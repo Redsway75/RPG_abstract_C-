@@ -12,46 +12,20 @@ namespace MyApp
         static void Main(String[] args){
 
             Cinterface inter = new Cinterface();
-            List<Character> list_ = new List<Character>(5);
-            List<Player> PlayerList = new List<Player>();
-            List<Enemy> EnemyList = new List<Enemy>();
-            Knight cavaleiro = new Knight();
-            Knight cavaleiro2 = new Knight();
-            Vampire vampiro = new Vampire();
-            Vampire vampiro2 = new Vampire();
-            Thief ladrao = new Thief();
-            int i = 0;
+            List<Character> list_ = new List<Character>();
+            Player[] static_p = new Player[1];
+            Enemy[] static_e = new Enemy[1];
+
+            int i=0;
             int j = 0;
 
-            cavaleiro.Name ="andre";
-            cavaleiro2.Name="nicolas";
-            vampiro.Name = "Dracula";
-            vampiro2.Name="blade";
-            ladrao.Name="lol";
-
-            list_.Add(cavaleiro);
-            list_.Add(cavaleiro2);
-            list_.Add(vampiro);
-            list_.Add(vampiro2);
-            list_.Add(ladrao);
-            
-            PlayerList.Add(cavaleiro);
-            PlayerList.Add(cavaleiro2);
-            EnemyList.Add(vampiro);
-            EnemyList.Add(vampiro2);
-            PlayerList.Add(ladrao);
-
-            
-
-
-
             while(true){
-
+                menu:
                 Console.WriteLine("Digite uma opção:");
                 Console.WriteLine("1- Criar personagem (Player)");
                 Console.WriteLine("2- Criar personagem (Inimigo)");
                 Console.WriteLine("3- Jogar");
-                Console.WriteLine("4- Listar pl os personagens criados");
+                Console.WriteLine("4- Listar personagens criados");
                 Console.WriteLine("5- Sair");
                 #nullable disable
                 int option = int.Parse(Console.ReadLine());
@@ -59,7 +33,12 @@ namespace MyApp
                 switch(option){
                     
 
-                    case 1:                    
+                    case 1:
+                        if(i!=0){
+                            Console.Clear();
+                            Console.WriteLine("O limite para criar personagem é de 1 player e 1 inimigo!!!");
+                            goto menu;
+                        }     
                         Console.WriteLine("Escolha uma classe: ");
                         Console.WriteLine("1- Knight");
                         Console.WriteLine("2- Thief");
@@ -80,8 +59,8 @@ namespace MyApp
                                 string cguild = Console.ReadLine();
 
                                 inter.Create_Knight(cname, cguild);
-                                PlayerList.Add(inter.Create_Knight(cname, cguild));
                                 list_.Add(inter.Create_Knight(cname, cguild));
+                                static_p[0] = inter.Create_Knight(cname, cguild);
                                 Console.Clear();
                                 Console.WriteLine("Personagem de classe cavaleiro criado");
                                 i++;
@@ -95,8 +74,8 @@ namespace MyApp
                                 string lguild = Console.ReadLine();
                                 #nullable disable
                                 inter.Create_Thief(lname, lguild);
-                                PlayerList.Add(inter.Create_Thief(lname, lguild));
-                                list_.Add(inter.Create_Witcher(lname, lguild));
+                                static_p[0] = inter.Create_Thief(lname, lguild);
+                                list_.Add(inter.Create_Thief(lname, lguild));
                                 Console.Clear();
                                 Console.WriteLine("Personagem de classe ladrão criado");
                                 i++;
@@ -110,7 +89,7 @@ namespace MyApp
                                 string guild_ = Console.ReadLine();
                                 #nullable disable
                                 inter.Create_Witcher(name_, guild_);
-                                PlayerList.Add(inter.Create_Witcher(name_, guild_));
+                                static_p[0] = inter.Create_Witcher(name_, guild_);
                                 list_.Add(inter.Create_Witcher(name_, guild_));
                                 Console.Clear();
                                 Console.WriteLine("Personagem de classe bruxo criado");
@@ -123,15 +102,15 @@ namespace MyApp
                                 Console.WriteLine("Guilda");
                                 string dguild = Console.ReadLine();
                                 inter.Create_Divine(dname, dguild);
-                                PlayerList.Add(inter.Create_Divine(dname, dguild));
-                                list_.Add(inter.Create_Witcher(dname, dguild));
+                                static_p[0] = inter.Create_Divine(dname, dguild);
+                                list_.Add(inter.Create_Divine(dname, dguild));
                                 Console.Clear();
                                 Console.WriteLine("Personagem de classe divino criado");
                                 i++;
                            break;
                            case 5:
                                  Console.Clear();
-                           break;
+                           goto menu;
                            default:
                                Console.Clear(); 
                                Console.WriteLine("Comando invalido!");
@@ -141,6 +120,11 @@ namespace MyApp
                     break;
 
                     case 2:
+                        if(j!=0){
+                            Console.Clear();
+                            Console.WriteLine("O limite para criar personagem é de 1 player e 1 inimigo!!!");
+                            goto menu;
+                        } 
                         Console.WriteLine("Escolha uma inimigo: ");
                         Console.WriteLine("1- Vampire");
                         Console.WriteLine("2- Zombie");
@@ -158,8 +142,8 @@ namespace MyApp
                                 #nullable disable
 
                                 inter.Create_Vampire(vname);
-                                EnemyList.Add(inter.Create_Vampire(vname));
-                                list_.AddRange(EnemyList);
+                                static_e[0] = inter.Create_Vampire(vname);
+                                list_.Add(inter.Create_Vampire(vname));
                                 Console.Clear();
                                 Console.WriteLine("Personagem do tipo vampiro criado");
                                 j++;
@@ -170,8 +154,8 @@ namespace MyApp
                                 #nullable disable
 
                                 inter.Create_Zombie(zname);
-                                EnemyList.Add(inter.Create_Zombie(zname));
-                                list_.AddRange(EnemyList);
+                                static_e[0] = inter.Create_Zombie(zname);
+                                list_.Add(inter.Create_Zombie(zname));
                                 Console.Clear();
                                 Console.WriteLine("Personagem do tipo zumbi criado");
                                 j++;
@@ -182,8 +166,8 @@ namespace MyApp
                                 #nullable disable
 
                                 inter.Create_Hollow(hname);
-                                EnemyList.Add(inter.Create_Hollow(hname));
-                                list_.AddRange(EnemyList);
+                                static_e[0] = inter.Create_Hollow(hname);
+                                list_.Add(inter.Create_Hollow(hname));
                                 Console.Clear();
                                 Console.WriteLine("Personagem do tipo hollow criado");
                                 j++;
@@ -194,15 +178,15 @@ namespace MyApp
                                 #nullable disable
 
                                 inter.Create_Hunter(cname);
-                                EnemyList.Add(inter.Create_Hunter(cname));
-                                list_.AddRange(EnemyList);
+                                static_e[0] = inter.Create_Hunter(cname);
+                                list_.Add(inter.Create_Hunter(cname));
                                 Console.Clear();
                                 Console.WriteLine("Personagem do tipo vampiro criado");
                                 j++;
                             break;
                             case 5:
                                 Console.Clear();
-                            break;
+                            goto menu;
                             default:
                                 Console.Clear();
                                 Console.WriteLine("Digite uma opção valida!");
@@ -211,51 +195,26 @@ namespace MyApp
                     break;
 
                     case 3:
-                    int battle;
-                    do{
-                        Console.WriteLine("");
-                        Console.WriteLine("Para escolher quem irá atacar");
-                        Console.WriteLine("basta seguir skipando até o char");
-                        Console.WriteLine("que deseja atacar. Para o inverso,");
-                        Console.WriteLine("basta executar o mesmo até o final");
-                        Console.WriteLine("para que o programa pule para o próximo dalista");
-                        Console.WriteLine("Escolha a opção:");
-                        Console.WriteLine("1- Jogar");
-                        Console.WriteLine("2- Sair");
-                        battle = int.Parse(Console.ReadLine());
-                        switch(battle){
-                            case 1:
-                                Console.Clear();
-                                if(EnemyList.Any() & PlayerList.Any()){
-                                    Console.Clear();
-                                    Console.WriteLine("A batalha está ocorrendo agora");
-                                    Console.WriteLine("Selecione uma ação ou pule para o proximo personagem!:");
+                        Console.Clear();
+                        if(static_p[0] == null | static_e[0] == null){Console.WriteLine("É NECESSÁRIO CRIAR UM PLAYER E UM INIMIGO PARA JOGAR!");}
+                        else{
+                        while(true){
+                            int a;
+                            inter.CharStatus(static_p[0], static_e[0]);
+                            Console.WriteLine("Digite uma opção para que ambos executem:");
+                            Console.WriteLine("0- Sair");
+                            Console.WriteLine("1- Atacar");
+                            Console.WriteLine("2- Ataque Especial");
+                            Console.WriteLine("3- Skill");
+                            Console.WriteLine("4- Defender");
+                            
+                            a = int.Parse(Console.ReadLine());
 
-                                    
-                                    foreach(var lsPL in PlayerList.Select((x, y)=>new{Value = x, Index = y})){
-                                        foreach(var lsIN in EnemyList.Select((z, w)=>new{Value = z, Index = w})){
-                                            inter.batalha(lsPL.Value, lsIN.Value);
-                                            if (lsIN.Value.HP<=0){
-                                                EnemyList.Remove(lsIN.Value);
-                                            }
-                                            if(lsPL.Value.HP<=0){
-                                                PlayerList.Remove(lsPL.Value);
-                                            }
-                                            else{continue;}
-                                            }
-                                    }                            
-                                    }
-                            break;
-                            case 2:
-                                Console.Clear();
-                                Console.WriteLine("Voltando para o menu...");
-                            break;
-                            default:
-                                Console.Clear();
-                                Console.WriteLine("Digito invalido!");
-                            break;
+                            inter.batalha(static_p[0], static_e[0], a);
+
+                            if(static_p[0].HP <=0 | static_e[0].HP <= 0| a == 0){Console.WriteLine("FIM DO JOGO!");break;}
                         }
-                        }while(battle !=2);
+                        }
                     break;
                     case 4:
                         if(list_.Any()){
@@ -271,7 +230,7 @@ namespace MyApp
                                 
                             }
                         }
-                             else{Console.Clear();Console.WriteLine("Não existe");}
+                             else{Console.Clear();Console.WriteLine("Lista vazia!!! Crie 1 personagem de cada!!!");}
                     break;
 
                     case 5:
